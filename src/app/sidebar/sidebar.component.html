@@ -1,0 +1,35 @@
+<div id="mySidebar" class="filter mt-4 d-md-block d-none">
+  <ul class="filter-title">
+    <li>Departments</li>
+  </ul>
+  <ul class="py-2" id="dept-div">
+    <li *ngFor="let dept of departments">
+      <a class="add-cursor" [class.active]="selectedDept === dept" (click)="selectedFilter(dept, 'department')">
+        <span [textContent]="dept + ' (' + deptObj[dept] + ')'" ></span>
+      </a>
+    </li>
+  </ul>
+  <ul class="filter-title">
+    <li>Office</li>
+  </ul>
+  <ul class="py-2" id="office-div">
+    <li *ngFor="let office of offices">
+      <a class="add-cursor" [class.active]="selectedOffice === office" (click)="selectedFilter(office, 'office')">
+        <span [textContent]="office + ' (' + officesObj[office] + ')'" ></span>
+      </a>
+    </li>
+  </ul>
+  <ul class="filter-title">
+    <li>Job Title</li>
+  </ul>
+  <ul class="pt-1 m-0 job-title-div" id="job-title-div">
+    <li class="add-cursor" *ngFor="let title of jobTitles">
+      <a class="add-cursor" [class.active]="selectedJobTitle === title" (click)="selectedFilter(title, 'jobTitle')">
+        <span [textContent]="title + ' (' + jobTitleObj[title] + ')'" ></span>
+      </a>
+    </li>
+  </ul>
+  <ul class="view-div">
+    <a class="add-cursor" #viewBtn (click)="onclickViewMore(viewBtn)">view more</a>
+  </ul>
+</div>

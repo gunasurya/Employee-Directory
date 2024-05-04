@@ -1,0 +1,35 @@
+<!-- Check if it's the login page -->
+<ng-container *ngIf="isLoginPage(); else signupSection">
+  <router-outlet></router-outlet>
+</ng-container>
+
+<!-- Check if it's the signup page -->
+<ng-template #signupSection>
+  <ng-container *ngIf="isSignupPage(); else notFoundSection">
+    <router-outlet></router-outlet>
+  </ng-container>
+</ng-template>
+
+<!-- The Not Found page should be at the top level -->
+<ng-template #notFoundSection>
+  <ng-container *ngIf="isPageNotFound()">
+    <app-not-found></app-not-found>
+  </ng-container>
+</ng-template>
+
+<!-- Check if it's the main section (authenticated pages) -->
+<ng-container *ngIf="isMainSection();">
+  <app-navbar></app-navbar>
+  <div class="ps-md-5">
+    <hr />
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-lg-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-8 col-sm-12 col-lg-9 pb-2">
+      <app-main-section></app-main-section>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ng-container>

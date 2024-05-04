@@ -1,0 +1,28 @@
+
+    <div  class="nav align-items-end row pt-4">
+      <div class="logo-div col-lg-2 col-md-3 col-sm-12">
+        <img src="/assets/logo.png" alt="" />
+      </div>
+      <div class="page-title d-flex col-lg-3 col-md-3 col-sm-12">
+        <div class="d-block d-md-none">
+          <button class="menu-btn" id="sidebar-toggle">☰</button>
+        </div>
+        <div class="d-flex flex-column page-title-text">
+          <h1 class="fnt">Employee Directory</h1>
+          <p class="fnt">The Ultimate People Directory Experience</p>
+        </div>
+      </div>
+      <div class="user-info-div col-lg-7 col-md-6">
+        <div class="d-flex align-items-end justify-content-end">
+          <h2 class="m-0 fnt"><span>Welcome,</span> Andrew Philip</h2>
+          <div class="user-profile" (click)="toggleDropdown()">
+            <img src="/assets/phillip.jpg" alt="" class="employee-img" id="profile-image" />
+            <div class="dropdown" [ngClass]="{'show': isDropdownVisible}">
+              <ul>
+                <li><a (click)="toLogOut()">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>

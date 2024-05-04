@@ -1,0 +1,81 @@
+$primary-color: skyblue;
+
+
+
+@font-face {
+  font-family: "sel";
+  src: url(/assets/selawksl.ttf);
+}
+.fa-solid,
+.fas {
+  font-size: 1.2rem;
+}
+.img-div {
+  display: flex;
+}
+
+.logo-div img {
+  width: 100%;
+  max-height: 8vh;
+}
+
+.search-filter-div {
+  display: flex;
+}
+
+.fnt {
+  font-family: "sel";
+}
+
+.employee-img {
+  width: 100%;
+  max-width: 50px;
+  height: auto;
+  margin-left: 0.6rem;
+}
+
+.page-title h1 {
+  color: $primary-color;
+  font-size: 1.6rem;
+  margin-bottom: 0;
+}
+
+.page-title p {
+  font-size: 1rem;
+  margin-bottom: 0 !important;
+}
+.user-info-div h2 span {
+    color: $primary-color;
+  }
+
+
+  /* Styles for the dropdown */
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown li a:hover {
+  background-color: #f1f1f1;
+}

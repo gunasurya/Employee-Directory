@@ -1,0 +1,55 @@
+<div class="pagination-div" id="pagination-div">
+  <button class="pagination-btn" (click)="filterEmployeeByName(-1)">
+    <i class="fa-solid fa-user"></i>
+  </button>
+  <button
+    (click)="filterEmployeeByName(char)"
+    *ngFor="let char of chars"
+    class="pagination-btn"
+    [class.active]="selectedChar == char"
+    [innerText]="char"
+  ></button>
+</div>
+<div class="function-div py-3">
+  <div class="search-filter-div">
+    <div class="search-div d-flex">
+      <label>Search</label>
+      <span class="fa fa-search form-control-feedback"></span>
+      <input
+        class="nosubmit"
+        type="search"
+        id="search-input"
+        #searchInput
+        placeholder=" Enter any keyword"
+        (input)="filterEmployeeBySearch(searchInput.value)"
+      />
+      <div>
+        <button #clearButton (click)="clearInput(searchInput)" class="clr-btn">
+          Clear
+        </button>
+      </div>
+      <div class="filter-btn-div wrapper">
+        <label>Filter by</label>
+        <select
+          name="select-option"
+          id="filter-input"
+          (change)="selectedEvent($event)"
+        >
+        <option value="" default>Select Option</option>
+        <option *ngFor="let option of filterOptions" [value]="option" 
+        [innerText] = "option | uppercase"
+        ></option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="btn-div">
+    <button id="add-employee-btn" routerLink="/employees/add" class="add-btn">
+      Add Employee
+    </button>
+  </div>
+</div>
+<p class="note">
+  <span class="fw-semibold">Note:</span> Please use advance filter option to
+  refine your results
+</p>

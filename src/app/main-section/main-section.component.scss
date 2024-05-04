@@ -1,0 +1,126 @@
+.pagination-btn-color {
+    background-color: transparent !important;
+    color: black !important;
+    border: #00b1fc solid 1px !important;
+    border-radius: 2px;
+  }
+  
+  .pagination-btn {
+    background-color: #00b1fc;
+    color: white;
+    width: 38px;
+    text-align: center;
+    height: 30px;
+    border: 1px solids #00b1fc;
+    float: left;
+    border: 0;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin: 0.1rem 0.1rem;
+  }
+  .pagination-div {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .nosubmit {
+    height: 35px;
+    font-size: 0.8rem;
+    border: 1px solid;
+    width: 13rem;
+    padding: 5px 0px 5px 30px;
+    margin-left: 0.5rem;
+  }
+  
+  .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 10rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+  }
+  .function-div {
+    display: flex;
+    justify-content: space-between;
+  }
+  .clr-btn {
+    background-color: #69ba00;
+    border: 0;
+    padding: 0.5rem 1.5rem;
+    color: white;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+  }
+  .wrapper {
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: baseline;
+    margin-left: 3rem;
+  }
+  
+  .wrapper:after {
+    content: "▼";
+    font-size: 0.8rem;
+    pointer-events: none;
+    position: absolute;
+    right: 0.5rem;
+    color: #636262;
+    bottom: 25%;
+    z-index: 1;
+  }
+  
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+  }
+  .search-div {
+    align-items: center;
+    position: relative;
+}
+  select::-ms-expand {
+    display: none;
+  }
+  
+  .search-div label {
+    font-size: 18px;
+  }
+  
+  .search-div {
+    align-items: center;
+    position: relative;
+  }
+  
+  .filter-btn-div select {
+    padding: 0.5rem 3.5rem 0.5rem 0.5rem;
+    font-size: 0.9rem;
+    width: unset;
+    margin-left: 0.8rem;
+  }
+  .filter-btn-div label {
+    font-size: 0.9rem;
+  }
+  .add-btn {
+    padding: 0.5rem 1rem;
+    color: white;
+    border: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    background-color: #00b1fc;
+    margin-left: auto;
+  }
+
+  .active{
+    background-color: transparent !important;
+    color: black !important;
+    border: #00b1fc solid 1px !important;
+    border-radius: 2px;
+  }
+
+  

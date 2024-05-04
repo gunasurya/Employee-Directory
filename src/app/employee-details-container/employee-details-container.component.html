@@ -1,0 +1,33 @@
+<div class="row employee-details-div fnt" id="employee-div">
+  <div class="p-0">
+    <div *ngIf="employees.length === 0">{{ noEmployeesMessage }}</div>
+    <div
+      *ngFor="let employee of employees"
+      [id]="employee.id"
+      class="col-xl-3 col-md-6 col-sm-12 p-1 card-container"
+      [routerLink]="['/employees/edit', employee.id]"
+      (click)="emp = employee"
+    >
+      <div class="row employee-details-card d-flex p-2">
+        <div class="col-4 img-div">
+          <img [src]="employee.image" id="emp-img" />
+        </div>
+        <div class="employee-info col-8">
+          <p
+            class="name"
+            [innerText]="employee.firstName + ' ' + employee.lastName"
+          ></p>
+          <p [innerText]="employee.jobTitle"></p>
+          <p [innerText]="employee.department"></p>
+          <span class="d-flex align-items-center">
+            <i class="bi bi-telephone-fill"></i>
+            <i class="bi bi-envelope-fill"></i>
+            <i class="bi bi-chat-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-heart-fill"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

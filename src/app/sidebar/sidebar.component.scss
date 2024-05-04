@@ -1,0 +1,32 @@
+.filter ul {
+    list-style-type: none;
+  }
+  
+  .filter ul li a {
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .filter ul a {
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+  
+  .filter-title {
+    font-weight: bold;
+    margin: 0 !important;
+  }
+  .add-cursor {
+    cursor: pointer;
+  }
+
+  .job-title-div {
+    height: 130px;
+    overflow: hidden;
+  }
+
+  .active{
+    color: cornflowerblue !important;
+  }

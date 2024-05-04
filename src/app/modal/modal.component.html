@@ -1,0 +1,190 @@
+<mat-dialog-content class="scrollable-dialog-content">
+  <div class="d-flex">
+    <p class="me-auto">Employee Details Form</p>
+    <button
+      type="button"
+      class="btn-close"
+      mat-dialog-close
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="text-center" *ngIf="!isEditMode && !data.isAddMode">
+    <img style="width: 90px;height: 90px;" [src]="data.empData.image">
+  </div>
+  <form [formGroup]="employeeForm" (ngSubmit)="submitForm()" novalidate>
+    <div class="d-flex justify-content-center">
+      <img id="preview-img" src="" alt="" />
+    </div>
+
+    <label for="first-name">First Name:</label>
+    <input
+      class="form-control"
+      [ngClass]="{'inactive-text': isActiveMode}"
+      maxlength="10"
+      type="text"
+      id="first-name"
+      formControlName="firstName"
+      required
+    />
+    <div *ngIf="firstNameControl.invalid && (firstNameControl.dirty || firstNameControl.touched)">
+      <mat-error *ngIf="firstNameControl.errors?.['required']"
+        >First Name is required.</mat-error
+      >
+      <mat-error *ngIf="firstNameControl.errors?.['maxlength']"
+        >First Name should be at most 10 characters long.</mat-error
+      >
+    </div>
+
+    <label for="last-name">Last Name:</label>
+    <input
+      class="form-control"
+      formControlName="lastName"
+      [ngClass]="{'inactive-text': isActiveMode}"
+      maxlength="10"
+      type="text"
+      id="last-name"
+      required
+    />
+    <div *ngIf="lastNameControl.invalid && (lastNameControl.dirty || lastNameControl.touched)">
+      <mat-error *ngIf="lastNameControl.errors?.['required']"
+        >Last Name is required.</mat-error
+      >
+      <mat-error *ngIf="lastNameControl.errors?.['maxlength']"
+        >Last Name should be at most 10 characters long.</mat-error
+      >
+    </div>
+
+    <label for="email">Email:</label>
+    <input
+      class="form-control"
+      [ngClass]="{'inactive-text': isActiveMode}"
+      formControlName="email"
+      type="email"
+      id="email"
+      required
+    />
+    <div *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)">
+      <mat-error *ngIf="emailControl.errors?.['required']"
+      >Email is required.</mat-error
+    >
+      <mat-error *ngIf="emailControl.errors?.['email']"
+        >Invalid email format.</mat-error
+      >
+    </div>
+
+    <label for="job-title">Job Title:</label>
+    <select
+      class="form-control"
+      [ngClass]="{'inactive-text': isActiveMode}"
+      formControlName="jobTitle"
+      id="job-title"
+      required
+    >
+      <option value="" selected>Select Valid Option</option>
+      <option [value]="title" *ngFor="let title of jobTitles" [innerText] = "title">
+      </option>
+    </select>
+    <div *ngIf="jobTitleControl.invalid && (jobTitleControl.dirty || jobTitleControl.touched)">
+      <mat-error>Select a job title.</mat-error>
+    </div>
+
+    <label for="office-location">Office:</label>
+    <select
+      class="form-control"
+      [ngClass]="{'inactive-text': isActiveMode}"
+      formControlName="office"
+      id="office-location"
+      required
+    >
+      <option value="" selected>Select Valid Option</option>
+      <option [value]="office" *ngFor="let office of offices" [innerText] = "office">
+      </option>
+    </select>
+    <div *ngIf="officeControl.invalid && (officeControl.dirty || officeControl.touched)">
+      <mat-error>Select an office.</mat-error>
+    </div>
+
+    <label for="department-option">Department:</label>
+    <select
+      class="form-control"
+      [ngClass]="{'inactive-text': isActiveMode}"
+      formControlName="department"
+      id="department-option"
+      required
+    >
+      <option value="" selected>Select Valid Option</option>
+      <option [value]="dept" *ngFor="let dept of departments" [innerText]="dept">
+      </option>
+    </select>
+    <div *ngIf="departmentControl.invalid && (departmentControl.dirty || departmentControl.touched)">
+      <mat-error>Select a department.</mat-error>
+    </div>
+
+    <label for="phone-number">Phone Number:</label>
+    <input
+      class="form-control"
+      type="tel"
+      [ngClass]="{'inactive-text': isActiveMode}"
+      formControlName="phoneNumber"
+      id="phone-number"
+      required
+    />
+    <div
+      *ngIf="phoneNumberControl.invalid && (phoneNumberControl.dirty || phoneNumberControl.touched)"
+    >
+      <mat-error *ngIf="phoneNumberControl.errors?.['required']"
+        >Phone Number is required.</mat-error
+      >
+      <mat-error *ngIf="phoneNumberControl.errors?.['pattern']"
+      >Invalid Phone number format.</mat-error
+    >
+    </div>
+
+    <label for="skype-id">Skype ID:</label>
+    <input
+      class="form-control"
+      type="text"
+      [ngClass]="{'inactive-text': isActiveMode}"
+      formControlName="skypeId"
+      id="skype-id"
+      required
+    />
+    <div *ngIf="skypeIdControl.invalid && (skypeIdControl.dirty || skypeIdControl.touched)">
+      <mat-error *ngIf="skypeIdControl.errors?.['required']"
+        >Skype ID is required.</mat-error
+      >
+    </div>
+    <label for="image-input">Photo:</label>
+    <input
+      #imageInput
+      type="file"
+      class="form-control"
+      (change)="onChangeFile($event)"
+      [ngClass]="{'inactive-text': isActiveMode}"
+      [disabled]="!isEditMode && isActiveMode"
+      accept=".png, .jpg, .jpeg"
+      id="image-input"
+      required
+    />
+    <div class="button-container">
+      <button
+        *ngIf="data.isAddMode"
+        type="submit"
+        mat-raised-button color="primary"
+        [disabled]="employeeForm.invalid || !isImageUploaded"
+      >
+        Add Employee
+      </button>
+      <button
+      *ngIf="isEditMode && !data.isAddMode"
+        type="submit"
+        mat-raised-button color="primary"
+        [disabled]="employeeForm.invalid"
+      >
+        Update Employee
+      </button>
+      <button class="ms-1"  *ngIf="data.isAddMode" mat-raised-button mat-button mat-dialog-close>Close</button>
+      <button class="ms-1"  *ngIf="!isEditMode && !data.isAddMode" mat-raised-button  (click)="enableEditMode()" type="button">Edit</button>
+    </div>
+  </form>
+</mat-dialog-content>
